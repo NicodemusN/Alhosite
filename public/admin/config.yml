@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: Tarmopythman/Alhosite
-  branch: main
+  branch: master
 
 local_backend: true
 

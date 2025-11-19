@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Authenticating...</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Parse query parameters from the URL
+      function getQueryParam(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
+
+      // Construct a message to send back to the CMS window
+      const authData = {
+        token: getQueryParam("token") || null,
+        expires_in: getQueryParam("expires_in") || null,
+        provider: "github",
+        type: "oauth",
+      };
+
+      // Send the auth data to the window that opened this popup
+      if (window.opener) {
+        window.opener.postMessage(JSON.stringify(authData), window.location.origin);
+        window.close();
+      } else {
+        document.body.innerHTML = "<p>Authentication completed. You may close this window.</p>";
+      }
+    </script>
+  </body>
+</html>
