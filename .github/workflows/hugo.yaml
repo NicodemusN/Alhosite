@@ -16,8 +16,8 @@ jobs:
       # Step 1: Checkout repo including theme
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          submodules: recursive  # safe even if theme isn’t a submodule
+        #with:
+        #  submodules: recursive  # safe even if theme isn’t a submodule
 
       # Step 2: Install Hugo
       - name: Setup Hugo
