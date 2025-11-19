@@ -1,3 +1,9 @@
+baseURL: "https://NicodemusN.github.io/Alhosite/"
+languageCode: "en-us"
+title: "Alhosite"
+theme: "hugo-simple-sections"
+paginate: 10
+
 backend:
   name: github
   repo: NicodemusN/Alhosite
