@@ -1,8 +1,8 @@
-name: Deploy Hugo site to Pages
+name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
-    branches: ["master"]  # Deploy only when master updates
+    branches: ["master"]
 
 permissions:
   contents: write
@@ -13,18 +13,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout repo including theme
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: recursive  # safe even if theme isn’t a submodule
 
+      # Step 2: Install Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.125.6"
           extended: true
 
+      # Step 3: Build the site
       - name: Build
         run: hugo --minify
 
+      # Step 4: Upload the public folder as artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -35,7 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
