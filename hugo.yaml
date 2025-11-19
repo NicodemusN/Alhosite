@@ -11,5 +11,5 @@ params:
     enabled: False
   logo: logo.png
   style:
-    brandColor1: '#43AA60'
-    brandColor2: '#600050'
+    brandColor1: '#1f1f26'
+    brandColor2: '#fbc94b'
