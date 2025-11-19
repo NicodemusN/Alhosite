@@ -1,11 +1,7 @@
-baseURL: 'https://hugo-landing-sections.demo.vadecodi.net'
+baseURL: 'https://nicodemusn.github.io/Alhosite/'
 defaultContentLanguage: en
 title: 'Example Site of hugo-simple-sections '
 theme: 'hugo-simple-sections'
-
-disableKinds:
-  - section
-  - taxonomy
 
 params:
   banner: banner.jpg
